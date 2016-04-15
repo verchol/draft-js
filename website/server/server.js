@@ -64,7 +64,7 @@ var app = connect()
   .use(compression())
   .use(errorHandler());
 
-var portToUse = port || 8080;
+var portToUse = port || 3000;
 var server = http.createServer(app);
 server.listen(portToUse);
 console.log('Open http://localhost:' + portToUse + '/draft-js/index.html');
