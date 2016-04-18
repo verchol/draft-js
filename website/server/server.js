@@ -45,8 +45,6 @@ var app = connect()
     // convert all the md files on every request. This is not optimal
     // but fast enough that we don't really need to care right now.
       if(req.method =='GET') {
-        console.log("in get");
-        console.log("Get PathName: " + req.url);
         if(req.url == "/") {
           var path = 'draft-js/index.html';
           res.writeHead(302, {'Location': path});
