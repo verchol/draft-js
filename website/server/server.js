@@ -44,7 +44,15 @@ var app = connect()
   .use(function(req, res, next) {
     // convert all the md files on every request. This is not optimal
     // but fast enough that we don't really need to care right now.
-    convert();
+      if(req.method =='GET') {
+        if(req.url == "/") {
+          var path = 'draft-js/index.html';
+          res.writeHead(302, {'Location': path});
+          res.end();
+        }
+      }
+
+      convert();
     next();
   })
   .use(reactMiddleware.provide(buildOptions))

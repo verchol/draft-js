@@ -39,6 +39,39 @@ Draft.js is used in production on Facebook, including status and
 comment inputs, [Notes](https://www.facebook.com/notes/), and
 [messenger.com](https://www.messenger.com).
 
+## Build and run website
+
+The first time, get all the dependencies loaded via
+```
+npm install
+```
+
+Then, run the server via
+
+```
+npm start
+Open http://localhost:8080/draft-js/index.html
+```
+
+## How dockerize this project?
+
+Create Dockerfile for this project and try it on [Codefresh](https://codefresh.io/).
+```
+FROM node:latest
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY . /usr/src/app
+COPY package.json /usr/src/app/
+
+RUN npm install --silent
+RUN cd website && pwd && npm install
+RUN npm run build
+
+WORKDIR /usr/src/app/website
+CMD [ "npm", "start" ]
+```
+
 ## Discussion and Support
 
 Join our [Slack team](https://draftjs.herokuapp.com)!
