@@ -50,7 +50,7 @@ Then, run the server via
 
 ```
 npm start
-Open http://localhost:3000/draft-js/index.html
+Open http://localhost:8080/draft-js/index.html
 ```
 
 ## How dockerize this project?
